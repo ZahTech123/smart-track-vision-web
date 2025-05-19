@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 354 80% 50%;
+    --primary: 354 80% 45%; /* Darkened the red slightly */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 10%;
@@ -33,7 +33,7 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 354 80% 50%;
+    --ring: 354 80% 45%; /* Updated ring color to match primary */
 
     --radius: 0.5rem;
   }

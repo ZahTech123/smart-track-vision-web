@@ -40,8 +40,8 @@ export default {
 				card: 'hsl(var(--card))',
 				'card-foreground': 'hsl(var(--card-foreground))',
 				smarttrack: {
-					red: '#e31837',
-					'red-light': '#ff3b57',
+					red: '#cc0c25', /* Darkened from #e31837 */
+					'red-light': '#e62f45', /* Adjusted to match the darker red */
 					black: '#1a1a1a',
 					'black-light': '#2f2f2f',
 					gray: '#f5f5f5',

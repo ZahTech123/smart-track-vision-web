@@ -15,11 +15,11 @@ const CtaSection = () => {
             Ready to Optimize Your Fleet Operations?
           </h2>
           <p className="text-xl text-white/80 mb-8">
-            Join hundreds of businesses that trust SmartTrack for their vehicle tracking needs. Get started today with a free demo.
+            Join hundreds of businesses that trust SmartTrack for their vehicle tracking needs. Get started today with a free quote.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" className="bg-white text-smarttrack-red hover:bg-gray-100 text-lg px-8">
-              Get a Free Demo
+              Get a Quote
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               Contact Sales

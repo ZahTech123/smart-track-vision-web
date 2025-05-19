@@ -22,7 +22,7 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white text-lg px-8">
-                Get a Demo
+                Get a Quote
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-smarttrack-black">
                 Learn More

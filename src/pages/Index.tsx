@@ -8,6 +8,7 @@ import HowItWorksSection from "../components/HowItWorksSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import CtaSection from "../components/CtaSection";
 import FooterSection from "../components/FooterSection";
+import BenefitsIcons from "../components/BenefitsIcons";
 
 const Index = () => {
   useEffect(() => {

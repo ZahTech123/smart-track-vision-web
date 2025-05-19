@@ -48,7 +48,7 @@ const Navbar = () => {
             Contact
           </a>
           <Button className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white">
-            Get a Demo
+            Get a Quote
           </Button>
         </div>
         
