@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -47,9 +48,11 @@ const Navbar = () => {
           <a href="#contact" className={`font-medium transition-colors ${scrolled ? "text-smarttrack-black hover:text-smarttrack-red" : "text-white hover:text-smarttrack-red"}`}>
             Contact
           </a>
-          <Button className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white">
-            Get a Quote
-          </Button>
+          <Link to="/quote">
+            <Button className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white">
+              Get a Quote
+            </Button>
+          </Link>
         </div>
         
         <div className="md:hidden">
