@@ -36,6 +36,12 @@
     --ring: 354 80% 45%; /* Updated ring color to match primary */
 
     --radius: 0.5rem;
+    
+    /* Theme colors as CSS variables */
+    --smarttrack-red: #cc0c25;
+    --smarttrack-red-light: #e62f45;
+    --smarttrack-black: #1a1a1a;
+    --smarttrack-black-light: #2f2f2f;
   }
 }
 
