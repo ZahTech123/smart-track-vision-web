@@ -162,8 +162,8 @@ const QuoteForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg')" }}>
-      <div className="min-h-screen bg-gradient-to-r from-blue-900/90 to-blue-800/90 py-12">
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.pexels.com/photos/3184450/pexels-photo-3184450.jpeg')" }}>
+      <div className="min-h-screen bg-gradient-to-r from-smarttrack-black/90 to-smarttrack-black-light/90 py-12">
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-2xl">
           <header className="text-center pt-8 pb-6">
             <Link to="/" className="inline-block mb-4">
@@ -178,8 +178,8 @@ const QuoteForm = () => {
           <form onSubmit={handleSubmit} className="px-6 md:px-10 pb-10">
             <section className="mb-10">
               <h2 className="text-3xl font-bold text-center mb-10">
-                <span className="text-gray-700">Pricing</span> <span className="text-blue-700">Table</span>
-                <div className="w-12 h-1 bg-blue-600 mx-auto mt-2"></div>
+                <span className="text-gray-700">Pricing</span> <span className="text-smarttrack-red">Table</span>
+                <div className="w-12 h-1 bg-smarttrack-red mx-auto mt-2"></div>
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -198,33 +198,35 @@ const QuoteForm = () => {
                     <label
                       htmlFor={plan.id}
                       className={`block relative rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl ${
-                        selectedPlan === plan.id ? "ring-2 ring-blue-600" : ""
+                        selectedPlan === plan.id ? "ring-2 ring-smarttrack-red" : ""
                       }`}
                     >
                       <div className={`${
                         plan.priceType === "special" 
-                          ? "bg-white border border-blue-600" 
+                          ? "bg-white border border-smarttrack-red" 
                           : plan.id === "corp-std" 
-                            ? "bg-blue-600 text-white" 
-                            : "bg-white border border-blue-600"
+                            ? "bg-smarttrack-black text-white" 
+                            : "bg-white border border-smarttrack-black"
                       }`}>
                         <div className={`${
                           plan.id === "corp-std" 
-                            ? "bg-blue-600 text-white"
-                            : "bg-blue-600 text-white"
+                            ? "bg-smarttrack-black text-white"
+                            : plan.priceType === "special" 
+                              ? "bg-smarttrack-red text-white" 
+                              : "bg-smarttrack-black text-white"
                         } py-2 px-4 rounded-t-lg`}>
                           <p className="font-bold uppercase text-center">{plan.tagline}</p>
                         </div>
                         
                         <div className={`p-6 ${
                           plan.id === "corp-std" 
-                            ? "bg-blue-600 text-white" 
+                            ? "bg-smarttrack-black text-white" 
                             : "bg-white"
                         }`}>
                           <h3 className={`text-xl font-bold text-center mb-2 ${
                             plan.id === "corp-std" 
                               ? "text-white" 
-                              : "text-blue-600"
+                              : "text-smarttrack-red"
                           }`}>
                             {plan.name}
                           </h3>
@@ -233,7 +235,7 @@ const QuoteForm = () => {
                             <span className={`text-4xl font-bold ${
                               plan.id === "corp-std" 
                                 ? "text-white" 
-                                : "text-blue-600"
+                                : "text-smarttrack-red"
                             }`}>
                               {plan.price}
                             </span>
@@ -280,8 +282,8 @@ const QuoteForm = () => {
                           
                           <button className={`w-full rounded-full py-2 px-4 font-medium text-center ${
                             plan.id === "corp-std" 
-                              ? "bg-white text-blue-600 hover:bg-gray-100" 
-                              : "bg-blue-600 text-white hover:bg-blue-700"
+                              ? "bg-white text-smarttrack-black hover:bg-gray-100" 
+                              : "bg-smarttrack-red text-white hover:bg-smarttrack-red-light"
                           }`}>
                             Select
                           </button>
@@ -378,7 +380,7 @@ const QuoteForm = () => {
             <div className="text-center">
               <Button
                 type="submit"
-                className="bg-smarttrack-red hover:bg-[#B3201B] transform hover:-translate-y-1 transition-all text-lg font-bold uppercase px-10 py-6"
+                className="bg-smarttrack-red hover:bg-smarttrack-red-light transform hover:-translate-y-1 transition-all text-lg font-bold uppercase px-10 py-6"
               >
                 Get My Quote
               </Button>
