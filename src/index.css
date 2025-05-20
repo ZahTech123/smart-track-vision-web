@@ -42,6 +42,11 @@
     --smarttrack-red-light: #e62f45;
     --smarttrack-black: #1a1a1a;
     --smarttrack-black-light: #2f2f2f;
+    
+    /* Added blue colors for pricing cards */
+    --smarttrack-blue: #4552CB;
+    --smarttrack-blue-light: #5563e8;
+    --smarttrack-blue-dark: #2e3da3;
   }
 }
 
@@ -73,4 +78,25 @@
   .animate-on-scroll.animated {
     @apply animate-fade-in-up;
   }
+  
+  .pricing-card {
+    @apply rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  
+  .pricing-card-premium {
+    @apply bg-[--smarttrack-blue] text-white;
+  }
+  
+  .pricing-card-standard {
+    @apply bg-white border border-[--smarttrack-blue];
+  }
+  
+  .pricing-header {
+    @apply bg-[--smarttrack-blue] text-white py-2 px-4 rounded-t-lg;
+  }
+  
+  .pricing-price {
+    @apply text-4xl font-bold;
+  }
 }
+

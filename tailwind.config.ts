@@ -45,6 +45,9 @@ export default {
 					black: 'var(--smarttrack-black)',
 					'black-light': 'var(--smarttrack-black-light)',
 					gray: '#f5f5f5',
+					blue: 'var(--smarttrack-blue)',
+					'blue-light': 'var(--smarttrack-blue-light)',
+					'blue-dark': 'var(--smarttrack-blue-dark)',
 				}
 			},
 			borderRadius: {
@@ -82,7 +85,7 @@ export default {
 				'slide-in-right': 'slide-in-right 0.5s ease-out forwards'
 			},
 			backgroundImage: {
-				'hero-pattern': "url('/hero-cityscape.jpg')",
+				'hero-pattern': "url('https://images.pexels.com/photos/3131893/pexels-photo-3131893.jpeg')",
 			}
 		}
 	},

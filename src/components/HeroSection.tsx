@@ -1,12 +1,13 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
     <section className="relative h-screen bg-smarttrack-black">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero-cityscape.jpg')" }}
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/3131893/pexels-photo-3131893.jpeg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-smarttrack-black/80 to-smarttrack-black/30"></div>
       </div>
@@ -21,9 +22,11 @@ const HeroSection = () => {
               Track your vehicles in real-time and optimize your business operations with our advanced GPS tracking solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white text-lg px-8">
-                Get a Quote
-              </Button>
+              <Link to="/quote">
+                <Button size="lg" className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white text-lg px-8">
+                  Get a Quote
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-smarttrack-black">
                 Learn More
               </Button>
@@ -32,9 +35,9 @@ const HeroSection = () => {
           
           <div className="relative hidden md:block">
             <img 
-              src="/red-suv.png" 
-              alt="Red SUV with GPS tracking" 
-              className="w-full max-w-md mx-auto animate-slide-in-right" 
+              src="https://images.pexels.com/photos/3147624/pexels-photo-3147624.jpeg" 
+              alt="Fleet management and GPS tracking" 
+              className="w-full max-w-md mx-auto animate-slide-in-right rounded-lg shadow-2xl" 
             />
             <img 
               src="/mobile-app.png" 
