@@ -1,4 +1,3 @@
-
 import React, { useState, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -162,9 +161,9 @@ const QuoteForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.pexels.com/photos/3184450/pexels-photo-3184450.jpeg')" }}>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/apec_haus_backdrop.JPG')" }}>
       <div className="min-h-screen bg-gradient-to-r from-smarttrack-black/90 to-smarttrack-black-light/90 py-12">
-        <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-2xl">
+        <div className="max-w-5xl mx-auto bg-white/90 rounded-xl shadow-2xl">
           <header className="text-center pt-8 pb-6">
             <Link to="/" className="inline-block mb-4">
               <span className="text-3xl font-bold">
