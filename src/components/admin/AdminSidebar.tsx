@@ -19,7 +19,7 @@ const AdminSidebar = () => {
   ];
 
   return (
-    <div className={`bg-smarttrack-black text-white h-screen transition-all duration-300 ${collapsed ? "w-16" : "w-64"}`}>
+    <div className={`bg-smarttrack-black text-white h-screen transition-all duration-300 flex flex-col ${collapsed ? "w-16" : "w-64"}`}>
       <div className="p-4 flex items-center justify-between border-b border-gray-800">
         {!collapsed && (
           <div className="text-xl font-bold">
@@ -34,7 +34,7 @@ const AdminSidebar = () => {
         </button>
       </div>
       
-      <div className="py-4">
+      <div className="py-4 flex-1">
         <nav className="space-y-1 px-2">
           {navItems.map((item) => (
             <Link
@@ -53,15 +53,16 @@ const AdminSidebar = () => {
         </nav>
       </div>
       
-      <div className="absolute bottom-4 w-full px-2">
-        <Button
-          variant="outline"
-          className={`border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white ${collapsed ? "justify-center w-12 mx-auto" : "w-[calc(100%-16px)]"}`}
+      <div className="p-2 border-t border-gray-800">
+        <button
           onClick={logout}
+          className={`flex items-center px-3 py-2 rounded-md transition-all text-gray-300 hover:bg-gray-800 hover:text-white w-full ${
+            collapsed ? "justify-center" : ""
+          }`}
         >
           <LogOut className="w-5 h-5" />
-          {!collapsed && <span className="ml-2">Logout</span>}
-        </Button>
+          {!collapsed && <span className="ml-3">Logout</span>}
+        </button>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+
 import React, { useState, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -169,7 +170,7 @@ const QuoteForm = () => {
         "service_tluuz6g",
         "template_iiptxnr", 
         templateParams,
-        "YOUR_PUBLIC_KEY" // You'll need to replace this with your actual EmailJS public key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "TNL5_-KPkeziCpnNz"
       );
       
       toast.success("Your quote request has been submitted! We'll get back to you soon.");
@@ -231,7 +232,7 @@ const QuoteForm = () => {
                         selectedPlan === plan.id ? "ring-2 ring-smarttrack-red" : ""
                       }`}
                     >
-                      <div className={`${
+                      <div className={`rounded-lg overflow-hidden ${
                         plan.priceType === "special" 
                           ? "bg-white border border-smarttrack-red" 
                           : plan.id === "corp-std" 
