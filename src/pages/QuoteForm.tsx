@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import emailjs from '@emailjs/browser';
 
 type PlanDetails = {
   id: string;
@@ -29,6 +30,7 @@ const QuoteForm = () => {
   const [company, setCompany] = useState("");
   const [numVehicles, setNumVehicles] = useState<number>(1);
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const plans: PlanDetails[] = [
     {
@@ -133,31 +135,60 @@ const QuoteForm = () => {
     },
   ];
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // In a real application, we would send this data to a server
-    // For now, we'll just log it and show a success toast
-    console.log({
-      selectedPlan,
-      name,
-      email,
-      phone,
-      company,
-      numVehicles,
-      message,
-    });
-    
-    toast.success("Your quote request has been submitted! We'll get back to you soon.");
-    
-    // Reset form
-    setSelectedPlan("");
-    setName("");
-    setEmail("");
-    setPhone("");
-    setCompany("");
-    setNumVehicles(1);
-    setMessage("");
+    try {
+      // Find the selected plan details
+      const selectedPlanDetails = plans.find(plan => plan.id === selectedPlan);
+      
+      // Prepare email template parameters
+      const templateParams = {
+        customer_name: name,
+        customer_email: email,
+        customer_phone: phone,
+        customer_company: company || 'Not provided',
+        number_of_vehicles: numVehicles.toString(),
+        selected_plan_name: selectedPlanDetails?.name || 'Not selected',
+        selected_plan_price: selectedPlanDetails?.price || 'N/A',
+        selected_plan_tagline: selectedPlanDetails?.tagline || 'N/A',
+        selected_plan_features: selectedPlanDetails?.features.map(f => 
+          `${f.included ? '✓' : '✗'} ${f.text}`
+        ).join(', ') || 'No features listed',
+        plan_details: selectedPlanDetails?.details.map(d => 
+          `${d.label}: ${typeof d.value === 'string' ? d.value : 'Included'}`
+        ).join(', ') || 'No details available',
+        additional_message: message || 'No additional message',
+        submission_time: new Date().toLocaleString(),
+        to_email: 'zahtech13@gmail.com'
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        "service_tluuz6g",
+        "template_iiptxnr", 
+        templateParams,
+        "YOUR_PUBLIC_KEY" // You'll need to replace this with your actual EmailJS public key
+      );
+      
+      toast.success("Your quote request has been submitted! We'll get back to you soon.");
+      
+      // Reset form
+      setSelectedPlan("");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setCompany("");
+      setNumVehicles(1);
+      setMessage("");
+      
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast.error("Failed to submit quote request. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -379,9 +410,10 @@ const QuoteForm = () => {
             <div className="text-center">
               <Button
                 type="submit"
-                className="bg-smarttrack-red hover:bg-smarttrack-red-light transform hover:-translate-y-1 transition-all text-lg font-bold uppercase px-10 py-6"
+                disabled={isSubmitting}
+                className="bg-smarttrack-red hover:bg-smarttrack-red-light transform hover:-translate-y-1 transition-all text-lg font-bold uppercase px-10 py-6 disabled:opacity-50"
               >
-                Get My Quote
+                {isSubmitting ? "Submitting..." : "Get My Quote"}
               </Button>
             </div>
           </form>
