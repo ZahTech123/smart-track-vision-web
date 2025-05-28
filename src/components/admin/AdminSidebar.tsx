@@ -1,13 +1,10 @@
 
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAdminAuth } from "@/contexts/AdminAuthContext";
-import { Button } from "@/components/ui/button";
-import { Menu, Home, FileText, Palette, LogOut } from "lucide-react";
+import { Menu, Home, FileText, Palette } from "lucide-react";
 
 const AdminSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const { logout } = useAdminAuth();
   const location = useLocation();
   
   const isActive = (path: string) => location.pathname === path;
@@ -51,18 +48,6 @@ const AdminSidebar = () => {
             </Link>
           ))}
         </nav>
-      </div>
-      
-      <div className="p-2 border-t border-gray-800">
-        <button
-          onClick={logout}
-          className={`flex items-center px-3 py-2 rounded-md transition-all text-gray-300 hover:bg-gray-800 hover:text-white w-full ${
-            collapsed ? "justify-center" : ""
-          }`}
-        >
-          <LogOut className="w-5 h-5" />
-          {!collapsed && <span className="ml-3">Logout</span>}
-        </button>
       </div>
     </div>
   );
