@@ -1,4 +1,5 @@
 
+import React from "react";
 import { PlanDetails } from "@/types/quote";
 
 export const plans: PlanDetails[] = [
