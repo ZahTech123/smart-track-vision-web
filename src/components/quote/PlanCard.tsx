@@ -1,0 +1,123 @@
+
+import React from "react";
+import { PlanDetails } from "@/types/quote";
+
+interface PlanCardProps {
+  plan: PlanDetails;
+  isSelected: boolean;
+  onSelect: (planId: string) => void;
+}
+
+const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
+  return (
+    <div className="relative">
+      <input
+        type="radio"
+        name="selected_plan"
+        id={plan.id}
+        value={plan.id}
+        checked={isSelected}
+        onChange={() => onSelect(plan.id)}
+        className="absolute opacity-0 w-0 h-0"
+        required
+      />
+      <label
+        htmlFor={plan.id}
+        className={`block relative rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl ${
+          isSelected ? "ring-2 ring-smarttrack-red" : ""
+        }`}
+      >
+        <div className={`rounded-lg overflow-hidden ${
+          plan.priceType === "special" 
+            ? "bg-white border border-smarttrack-red" 
+            : plan.id === "corp-std" 
+              ? "bg-smarttrack-black text-white" 
+              : "bg-white border border-smarttrack-black"
+        }`}>
+          <div className={`${
+            plan.id === "corp-std" 
+              ? "bg-smarttrack-black text-white"
+              : plan.priceType === "special" 
+                ? "bg-smarttrack-red text-white" 
+                : "bg-smarttrack-black text-white"
+          } py-2 px-4 rounded-t-lg`}>
+            <p className="font-bold uppercase text-center">{plan.tagline}</p>
+          </div>
+          
+          <div className={`p-6 ${
+            plan.id === "corp-std" 
+              ? "bg-smarttrack-black text-white" 
+              : "bg-white"
+          }`}>
+            <h3 className={`text-xl font-bold text-center mb-2 ${
+              plan.id === "corp-std" 
+                ? "text-white" 
+                : "text-smarttrack-red"
+            }`}>
+              {plan.name}
+            </h3>
+            
+            <div className="text-center mb-4">
+              <span className={`text-4xl font-bold ${
+                plan.id === "corp-std" 
+                  ? "text-white" 
+                  : "text-smarttrack-red"
+              }`}>
+                {plan.price}
+              </span>
+              <span className={`text-sm ${
+                plan.id === "corp-std" 
+                  ? "text-white" 
+                  : "text-gray-600"
+              }`}>/month</span>
+            </div>
+            
+            <ul className="space-y-2 mb-4">
+              {plan.features.map((feature, i) => (
+                <li key={i} className={`flex items-start ${
+                  plan.id === "corp-std" 
+                    ? "text-white" 
+                    : "text-gray-600"
+                }`}>
+                  {feature.included ? (
+                    <i className={`fas fa-check mr-2 mt-1 ${
+                      plan.id === "corp-std" 
+                        ? "text-white" 
+                        : "text-green-600"
+                    }`}></i>
+                  ) : (
+                    <i className="fas fa-times text-red-600 mr-2 mt-1"></i>
+                  )}
+                  <span>{feature.text}</span>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="text-sm space-y-1 mb-4">
+              {plan.details.slice(0, 4).map((detail, i) => (
+                <p key={i} className={`flex justify-between ${
+                  plan.id === "corp-std" 
+                    ? "text-white" 
+                    : "text-gray-700"
+                }`}>
+                  <strong>{detail.label}:</strong> 
+                  <span className="ml-2">{detail.value}</span>
+                </p>
+              ))}
+            </div>
+            
+            <button className={`w-full rounded-full py-2 px-4 font-medium text-center ${
+              plan.id === "corp-std" 
+                ? "bg-white text-smarttrack-black hover:bg-gray-100" 
+                : "bg-smarttrack-red text-white hover:bg-smarttrack-red-light"
+            }`}>
+              Select
+            </button>
+          </div>
+        </div>
+      </label>
+    </div>
+  );
+};
+
+export default PlanCard;
