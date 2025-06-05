@@ -29,7 +29,6 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <img src="/images/logo.png" alt="Smart Track Logo" className="h-8 w-auto mr-2" />
           <span className={`text-2xl font-bold ${scrolled ? "text-smarttrack-black" : "text-white"}`}>
             Smart Track
           </span>
