@@ -70,9 +70,7 @@ const QuoteForm = () => {
           </Button>
           <header className="text-center pt-8 pb-6">
             <Link to="/" className="inline-block mb-4">
-              <span className="text-3xl font-bold">
-                <span className="text-smarttrack-red">Smart</span>Track
-              </span>
+              <img src="/images/logo.png" alt="SmartTrack Logo" className="h-10 mx-auto" />
             </Link>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 uppercase">GET A QUOTE</h1>
             <p className="text-gray-600 mt-2">Select a plan and tell us about your needs.</p>
