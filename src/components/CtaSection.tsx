@@ -39,7 +39,7 @@ const CtaSection = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-smarttrack-red"
+              className="border-white text-black bg-white hover:bg-gray-100 hover:text-smarttrack-red"
               onClick={handleContactSales}
             >
               Contact Sales
