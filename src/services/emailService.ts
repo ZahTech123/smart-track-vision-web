@@ -23,7 +23,7 @@ export const sendQuoteRequest = async (
     ).join(', ') || 'No details available',
     additional_message: formData.message || 'No additional message',
     submission_time: new Date().toLocaleString(),
-    to_email: 'zahtech13@gmail.com'
+    to_email: 'zahtech13@gmail.com,info@terunapng.com'
   };
 
   return await emailjs.send(
