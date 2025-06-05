@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { 
   DollarSign, 
@@ -62,6 +61,11 @@ const BenefitsSection = () => {
       icon: <Clock className="h-12 w-12 text-smarttrack-red" />,
       title: "Real-Time Monitoring",
       description: "Access live location data, receive instant alerts, and make informed decisions quickly."
+    },
+    {
+      icon: <Shield className="h-12 w-12 text-smarttrack-red" />,
+      title: "Secure Engine Cut Off (SECO)",
+      description: "Gradually restricts fuel supply to safely slow down and stop the vehicle — ideal for preventing theft and unauthorized use without sudden halts."
     }
   ];
   
