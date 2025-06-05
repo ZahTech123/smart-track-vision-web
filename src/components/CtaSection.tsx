@@ -1,7 +1,20 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const CtaSection = () => {
+  const handleContactSales = () => {
+    // Create mailto link with pre-filled subject and body
+    const subject = encodeURIComponent("SmartTrack PNG - Sales Inquiry");
+    const body = encodeURIComponent(
+      "Hello SmartTrack PNG Team,\n\nI am interested in learning more about your vehicle tracking solutions. Please contact me to discuss pricing and features.\n\nBest regards"
+    );
+    const mailtoLink = `mailto:info@terunapng.com?subject=${subject}&body=${body}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section className="py-20 bg-smarttrack-red relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
@@ -23,7 +36,12 @@ const CtaSection = () => {
                 Get a Quote
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-white text-smarttrack-red hover:bg-white hover:text-smarttrack-red">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-smarttrack-red"
+              onClick={handleContactSales}
+            >
               Contact Sales
             </Button>
           </div>
