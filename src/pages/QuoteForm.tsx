@@ -1,6 +1,5 @@
-
 import React, { useState, FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import PricingTable from "@/components/quote/PricingTable";
@@ -8,8 +7,10 @@ import CustomerDetailsForm from "@/components/quote/CustomerDetailsForm";
 import { QuoteFormData } from "@/types/quote";
 import { plans } from "@/data/plans";
 import { sendQuoteRequest } from "@/services/emailService";
+import { ChevronLeft } from "lucide-react";
 
 const QuoteForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<QuoteFormData>({
     selectedPlan: "",
     name: "",
@@ -58,7 +59,15 @@ const QuoteForm = () => {
   return (
     <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/apec_haus_backdrop.JPG')" }}>
       <div className="min-h-screen bg-gradient-to-r from-smarttrack-black/90 to-smarttrack-black-light/90 py-12">
-        <div className="max-w-5xl mx-auto bg-white/90 rounded-xl shadow-2xl">
+        <div className="max-w-5xl mx-auto bg-white/90 rounded-xl shadow-2xl relative">
+          <Button
+            size="icon"
+            onClick={() => navigate(-1)}
+            className="absolute top-4 left-4 bg-gray-100 border border-gray-300 text-gray-700 hover:bg-gray-200 rounded-lg focus-visible:ring-0 focus-visible:ring-offset-0"
+            aria-label="Go back"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </Button>
           <header className="text-center pt-8 pb-6">
             <Link to="/" className="inline-block mb-4">
               <span className="text-3xl font-bold">
