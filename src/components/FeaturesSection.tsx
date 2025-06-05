@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 
 const FeaturesSection = () => {
@@ -97,7 +96,7 @@ const FeaturesSection = () => {
           
           <div className="order-1 md:order-2 animate-on-scroll">
             <img 
-              src="/dashboard-mockup.png" 
+              src="/images/dashboard.png" 
               alt="Smart Track Dashboard" 
               className="rounded-lg shadow-lg mx-auto max-w-full"
             />
