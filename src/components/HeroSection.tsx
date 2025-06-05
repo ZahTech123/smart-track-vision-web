@@ -1,5 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const HeroSection = () => {
   return (
@@ -39,9 +41,71 @@ const HeroSection = () => {
                   Get a Quote
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="border-white text-smarttrack-black hover:bg-white hover:text-smarttrack-black">
-                Learn More
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button size="lg" variant="outline" className="border-white text-smarttrack-black hover:bg-white hover:text-smarttrack-black">
+                    Learn More
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold text-smarttrack-red">
+                      Smarter Fleet Management Starts Here
+                    </DialogTitle>
+                    <DialogDescription className="text-lg text-gray-700">
+                      At SmartTrack PNG, we provide real-time GPS tracking solutions that empower you to take full control of your vehicles and assets—anytime, anywhere.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6 mt-6">
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-smarttrack-black">Why Choose SmartTrack?</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="font-semibold text-smarttrack-red">Live Vehicle Tracking</h4>
+                          <p className="text-gray-600">Monitor your fleet in real-time with pinpoint GPS accuracy.</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-smarttrack-red">SECO</h4>
+                          <p className="text-gray-600">Secure Engine Cut Off, to safely immobilise the vehicle by cutting fuel supply to slow the vehicle down to a halt.</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-smarttrack-red">Dashboard Camera</h4>
+                          <p className="text-gray-600">Integrating dashcam into vehicle tracking. You track and review road incidents making accident or incident reconstruction so much easier.</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-smarttrack-red">Driver Performance Monitoring</h4>
+                          <p className="text-gray-600">Track speed, idle time, and driving behavior to improve safety and accountability.</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-smarttrack-red">Geo-Fencing Alerts</h4>
+                          <p className="text-gray-600">Get instant notifications when a vehicle enters or leaves a designated area.</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-smarttrack-red">Comprehensive Reports</h4>
+                          <p className="text-gray-600">Access detailed reports for better decision-making and compliance.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-smarttrack-black">Built for PNG Businesses</h3>
+                      <p className="text-gray-600 mb-4">
+                        Whether you're managing a small fleet or a large operation, our platform is designed to work reliably in Papua New Guinea's unique environment.
+                      </p>
+                    </div>
+                    <div className="border-t pt-6">
+                      <h3 className="text-xl font-semibold mb-4 text-smarttrack-black">Ready to take control of your fleet?</h3>
+                      <p className="text-gray-600 mb-4">
+                        Get in touch or Request a Demo to see how SmartTrack PNG can transform your operations.
+                      </p>
+                      <Link to="/quote">
+                        <Button className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white">
+                          Request a Demo
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
           
