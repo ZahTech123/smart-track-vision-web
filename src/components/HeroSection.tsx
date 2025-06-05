@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -91,17 +90,6 @@ const HeroSection = () => {
                       <p className="text-gray-600 mb-4">
                         Whether you're managing a small fleet or a large operation, our platform is designed to work reliably in Papua New Guinea's unique environment.
                       </p>
-                    </div>
-                    <div className="border-t pt-6">
-                      <h3 className="text-xl font-semibold mb-4 text-smarttrack-black">Ready to take control of your fleet?</h3>
-                      <p className="text-gray-600 mb-4">
-                        Get in touch or Request a Demo to see how SmartTrack PNG can transform your operations.
-                      </p>
-                      <Link to="/quote">
-                        <Button className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white">
-                          Request a Demo
-                        </Button>
-                      </Link>
                     </div>
                   </div>
                 </DialogContent>
