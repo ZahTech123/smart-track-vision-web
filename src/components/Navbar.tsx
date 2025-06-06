@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <span className={`text-2xl font-bold ${scrolled ? "text-smarttrack-black" : "text-white"}`}>
-            Smart Track
+            <span className="text-smarttrack-red">Smart</span> Track
           </span>
         </div>
         
