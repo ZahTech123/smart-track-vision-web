@@ -1,3 +1,4 @@
+
 import emailjs from '@emailjs/browser';
 import { PlanDetails, QuoteFormData } from '@/types/quote';
 import { isValidEmailFormat } from '@/utils/emailValidation';
@@ -64,6 +65,7 @@ export const sendAutoResponse = async (
     ).join('\n') || 'No features listed',
     additional_message: formData.message || '',
     submission_time: new Date().toLocaleString(),
+    closing_message: 'Thank you for choosing Smart Track. For a tailored solution, like asset tracking, personnel trackers, guard patrols, vessel tracking, email us on info@smarttrackpng.com for more information.',
     email: formData.email // This is the key parameter for recipient
   };
 
