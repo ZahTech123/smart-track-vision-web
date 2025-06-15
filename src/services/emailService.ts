@@ -1,4 +1,3 @@
-
 import emailjs from '@emailjs/browser';
 import { PlanDetails, QuoteFormData } from '@/types/quote';
 import { isValidEmailFormat } from '@/utils/emailValidation';
@@ -54,10 +53,10 @@ export const sendAutoResponse = async (formData: QuoteFormData) => {
     customer_phone: formData.phone,
     customer_company: formData.company || 'Not provided',
     number_of_vehicles: formData.numVehicles.toString(),
-    to_email: formData.email
+    email: formData.email // This is the key parameter for recipient
   };
 
-  console.log('Sending auto-response to email:', formData.email);
+  console.log('Sending auto-response with parameters:', templateParams);
 
   try {
     const result = await emailjs.send(
