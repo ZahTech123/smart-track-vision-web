@@ -1,4 +1,6 @@
+
 import React from "react";
+import { Check } from "lucide-react";
 import { PlanDetails } from "@/types/quote";
 
 interface PlanCardProps {
@@ -34,7 +36,7 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
         htmlFor={plan.id}
         onClick={handleLabelClick}
         className={`block relative rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
-          isSelected ? "ring-2 ring-smarttrack-red" : ""
+          isSelected ? "ring-2 ring-smarttrack-red shadow-lg" : ""
         }`}
       >
         <div className={`rounded-lg overflow-hidden ${
@@ -116,12 +118,17 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
               ))}
             </div>
             
-            <div className={`w-full rounded-full py-2 px-4 font-medium text-center ${
-              plan.id === "corp-std" 
-                ? "bg-white text-smarttrack-black" 
-                : "bg-smarttrack-red text-white"
+            <div className={`w-full rounded-full py-2 px-4 font-medium text-center transition-all duration-300 flex items-center justify-center gap-2 ${
+              isSelected 
+                ? plan.id === "corp-std" 
+                  ? "bg-green-600 text-white shadow-lg" 
+                  : "bg-green-600 text-white shadow-lg"
+                : plan.id === "corp-std" 
+                  ? "bg-white text-smarttrack-black hover:bg-gray-100" 
+                  : "bg-smarttrack-red text-white hover:bg-smarttrack-red-light"
             }`}>
-              Select
+              {isSelected && <Check className="h-4 w-4" />}
+              <span>{isSelected ? "Selected" : "Select"}</span>
             </div>
           </div>
         </div>
