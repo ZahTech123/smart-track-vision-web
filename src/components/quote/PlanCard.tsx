@@ -36,8 +36,9 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
         htmlFor={plan.id}
         onClick={handleLabelClick}
         className={`block relative rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
-          isSelected ? "ring-2 ring-smarttrack-red shadow-lg" : ""
+          isSelected ? "ring-2 ring-smarttrack-red shadow-[0_0_20px_rgba(204,12,37,0.5)]" : ""
         }`}
+        style={isSelected ? { boxShadow: '0 0 20px rgba(204, 12, 37, 0.5)' } : {}}
       >
         <div className={`rounded-lg overflow-hidden ${
           plan.priceType === "special" 
@@ -121,8 +122,8 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
             <div className={`w-full rounded-full py-2 px-4 font-medium text-center transition-all duration-300 flex items-center justify-center gap-2 ${
               isSelected 
                 ? plan.id === "corp-std" 
-                  ? "bg-green-600 text-white shadow-lg" 
-                  : "bg-green-600 text-white shadow-lg"
+                  ? "bg-smarttrack-red text-white shadow-lg" 
+                  : "bg-smarttrack-red text-white shadow-lg"
                 : plan.id === "corp-std" 
                   ? "bg-white text-smarttrack-black hover:bg-gray-100" 
                   : "bg-smarttrack-red text-white hover:bg-smarttrack-red-light"
