@@ -6,7 +6,7 @@ import PricingTable from "@/components/quote/PricingTable";
 import CustomerDetailsForm from "@/components/quote/CustomerDetailsForm";
 import { QuoteFormData } from "@/types/quote";
 import { plans } from "@/data/plans";
-import { sendQuoteRequest } from "@/services/emailService";
+import { sendQuoteRequest, sendAutoResponse } from "@/services/emailService";
 import { ChevronLeft } from "lucide-react";
 
 const QuoteForm = () => {
@@ -33,7 +33,17 @@ const QuoteForm = () => {
     try {
       const selectedPlanDetails = plans.find(plan => plan.id === formData.selectedPlan);
       
+      // Send quote request to admin
       await sendQuoteRequest(formData, selectedPlanDetails);
+      
+      // Send auto-response to customer
+      try {
+        await sendAutoResponse(formData);
+        console.log('Auto-response sent successfully');
+      } catch (autoResponseError) {
+        console.error('Auto-response failed:', autoResponseError);
+        // Don't fail the whole process if auto-response fails
+      }
       
       toast.success("Your quote request has been submitted! We'll get back to you soon.");
       

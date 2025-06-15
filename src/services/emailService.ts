@@ -33,3 +33,21 @@ export const sendQuoteRequest = async (
     import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "TNL5_-KPkeziCpnNz"
   );
 };
+
+export const sendAutoResponse = async (formData: QuoteFormData) => {
+  const templateParams = {
+    customer_name: formData.name,
+    customer_email: formData.email,
+    customer_phone: formData.phone,
+    customer_company: formData.company || 'Not provided',
+    number_of_vehicles: formData.numVehicles.toString(),
+    to_email: formData.email
+  };
+
+  return await emailjs.send(
+    "service_tluuz6g",
+    "template_ew4z10r",
+    templateParams,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "TNL5_-KPkeziCpnNz"
+  );
+};
