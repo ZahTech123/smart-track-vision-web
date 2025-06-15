@@ -41,7 +41,10 @@ export const sendQuoteRequest = async (
   );
 };
 
-export const sendAutoResponse = async (formData: QuoteFormData) => {
+export const sendAutoResponse = async (
+  formData: QuoteFormData,
+  selectedPlanDetails: PlanDetails | undefined
+) => {
   // Validate email format before sending auto-response
   if (!isValidEmailFormat(formData.email)) {
     throw new Error('Invalid email address format. Cannot send auto-response.');
@@ -53,6 +56,14 @@ export const sendAutoResponse = async (formData: QuoteFormData) => {
     customer_phone: formData.phone,
     customer_company: formData.company || 'Not provided',
     number_of_vehicles: formData.numVehicles.toString(),
+    selected_plan_name: selectedPlanDetails?.name || 'Not selected',
+    selected_plan_price: selectedPlanDetails?.price || 'N/A',
+    selected_plan_tagline: selectedPlanDetails?.tagline || 'N/A',
+    selected_plan_features: selectedPlanDetails?.features.map(f => 
+      `${f.included ? '✓' : '✗'} ${f.text}`
+    ).join('\n') || 'No features listed',
+    additional_message: formData.message || '',
+    submission_time: new Date().toLocaleString(),
     email: formData.email // This is the key parameter for recipient
   };
 

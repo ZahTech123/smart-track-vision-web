@@ -1,4 +1,3 @@
-
 import React, { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -84,9 +83,9 @@ const QuoteForm = () => {
       await sendQuoteRequest(formData, selectedPlanDetails);
       console.log('Quote request sent successfully');
       
-      // Send auto-response to customer
+      // Send auto-response to customer with plan details
       try {
-        await sendAutoResponse(formData);
+        await sendAutoResponse(formData, selectedPlanDetails);
         console.log('Auto-response sent successfully to:', formData.email);
         toast.success("Your quote request has been submitted! Please check your email for confirmation.");
       } catch (autoResponseError) {
