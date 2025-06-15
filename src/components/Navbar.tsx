@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -18,6 +19,10 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrolled]);
+
+  const handleCustomerLogin = () => {
+    window.open('https://monitoring.smarttrackpng.com', '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <nav
@@ -47,6 +52,17 @@ const Navbar = () => {
           <a href="#contact" className={`font-medium transition-colors ${scrolled ? "text-smarttrack-black hover:text-smarttrack-red" : "text-white hover:text-smarttrack-red"}`}>
             Contact
           </a>
+          <Button
+            onClick={handleCustomerLogin}
+            variant="outline"
+            className={`border-2 font-medium transition-all ${
+              scrolled 
+                ? "border-smarttrack-red text-smarttrack-red hover:bg-smarttrack-red hover:text-white" 
+                : "border-white text-white hover:bg-white hover:text-smarttrack-black"
+            }`}
+          >
+            Customer Login
+          </Button>
           <Link to="/quote">
             <Button className="bg-smarttrack-red hover:bg-smarttrack-red-light text-white">
               Get a Quote
