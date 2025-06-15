@@ -1,4 +1,3 @@
-
 import React from "react";
 import { PlanDetails } from "@/types/quote";
 
@@ -9,6 +8,16 @@ interface PlanCardProps {
 }
 
 const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    onSelect(plan.id);
+  };
+
+  const handleLabelClick = (e: React.MouseEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    onSelect(plan.id);
+  };
+
   return (
     <div className="relative">
       <input
@@ -17,12 +26,13 @@ const PlanCard: React.FC<PlanCardProps> = ({ plan, isSelected, onSelect }) => {
         id={plan.id}
         value={plan.id}
         checked={isSelected}
-        onChange={() => onSelect(plan.id)}
+        onChange={handleRadioChange}
         className="absolute opacity-0 w-0 h-0"
         required
       />
       <label
         htmlFor={plan.id}
+        onClick={handleLabelClick}
         className={`block relative rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
           isSelected ? "ring-2 ring-smarttrack-red" : ""
         }`}
