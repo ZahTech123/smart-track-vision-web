@@ -58,7 +58,7 @@ const Navbar = () => {
             className={`border-2 font-medium transition-all ${
               scrolled 
                 ? "border-smarttrack-red text-smarttrack-red hover:bg-smarttrack-red hover:text-white" 
-                : "border-white text-white hover:bg-white hover:text-smarttrack-black"
+                : "border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-smarttrack-black shadow-sm"
             }`}
           >
             Customer Login
