@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -39,6 +40,7 @@
     /* Theme colors as CSS variables */
     --smarttrack-red: #cc0c25;
     --smarttrack-red-light: #e62f45;
+    --smarttrack-red-dark: #a00a20;
     --smarttrack-black: #1a1a1a;
     --smarttrack-black-light: #2f2f2f;
     

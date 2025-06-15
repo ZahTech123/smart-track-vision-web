@@ -42,6 +42,7 @@ export default {
 				smarttrack: {
 					red: 'var(--smarttrack-red)',
 					'red-light': 'var(--smarttrack-red-light)',
+					'red-dark': 'var(--smarttrack-red-dark)',
 					black: 'var(--smarttrack-black)',
 					'black-light': 'var(--smarttrack-black-light)',
 					gray: '#f5f5f5',

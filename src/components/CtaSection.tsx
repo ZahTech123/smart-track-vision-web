@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ const CtaSection = () => {
   };
 
   return (
-    <section className="py-20 bg-smarttrack-red relative overflow-hidden">
+    <section className="py-20 bg-smarttrack-red-dark relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute h-96 w-96 rounded-full bg-white/30 -top-20 -left-20"></div>
         <div className="absolute h-96 w-96 rounded-full bg-white/30 -bottom-20 -right-20"></div>
