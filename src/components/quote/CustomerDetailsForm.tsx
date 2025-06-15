@@ -1,15 +1,42 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { QuoteFormData } from "@/types/quote";
+import { validateEmail } from "@/utils/emailValidation";
+import { cn } from "@/lib/utils";
 
 interface CustomerDetailsFormProps {
   formData: QuoteFormData;
   onFieldChange: (field: keyof QuoteFormData, value: string | number) => void;
+  errors?: Partial<Record<keyof QuoteFormData, string>>;
 }
 
-const CustomerDetailsForm: React.FC<CustomerDetailsFormProps> = ({ formData, onFieldChange }) => {
+const CustomerDetailsForm: React.FC<CustomerDetailsFormProps> = ({ 
+  formData, 
+  onFieldChange, 
+  errors = {} 
+}) => {
+  const [emailValidation, setEmailValidation] = useState<{ isValid: boolean; error?: string }>({ isValid: true });
+
+  const handleEmailChange = (email: string) => {
+    onFieldChange('email', email);
+    
+    // Real-time email validation
+    if (email) {
+      const validation = validateEmail(email);
+      setEmailValidation(validation);
+    } else {
+      setEmailValidation({ isValid: true });
+    }
+  };
+
+  const getEmailInputClassName = () => {
+    if (!formData.email) return "";
+    if (emailValidation.isValid) return "border-green-500 focus:border-green-500";
+    return "border-red-500 focus:border-red-500";
+  };
+
   return (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-center text-smarttrack-red mb-6 uppercase">
@@ -24,8 +51,10 @@ const CustomerDetailsForm: React.FC<CustomerDetailsFormProps> = ({ formData, onF
             id="name"
             value={formData.name}
             onChange={(e) => onFieldChange('name', e.target.value)}
+            className={cn(errors.name && "border-red-500")}
             required
           />
+          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
         
         <div className="space-y-2">
@@ -36,9 +65,17 @@ const CustomerDetailsForm: React.FC<CustomerDetailsFormProps> = ({ formData, onF
             id="email"
             type="email"
             value={formData.email}
-            onChange={(e) => onFieldChange('email', e.target.value)}
+            onChange={(e) => handleEmailChange(e.target.value)}
+            className={cn(getEmailInputClassName(), errors.email && "border-red-500")}
             required
           />
+          {!emailValidation.isValid && emailValidation.error && (
+            <p className="text-red-500 text-sm">{emailValidation.error}</p>
+          )}
+          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          {formData.email && emailValidation.isValid && (
+            <p className="text-green-600 text-sm">✓ Valid email address</p>
+          )}
         </div>
         
         <div className="space-y-2">
@@ -50,8 +87,10 @@ const CustomerDetailsForm: React.FC<CustomerDetailsFormProps> = ({ formData, onF
             type="tel"
             value={formData.phone}
             onChange={(e) => onFieldChange('phone', e.target.value)}
+            className={cn(errors.phone && "border-red-500")}
             required
           />
+          {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
         </div>
         
         <div className="space-y-2">
@@ -75,8 +114,10 @@ const CustomerDetailsForm: React.FC<CustomerDetailsFormProps> = ({ formData, onF
             min="1"
             value={formData.numVehicles}
             onChange={(e) => onFieldChange('numVehicles', parseInt(e.target.value))}
+            className={cn(errors.numVehicles && "border-red-500")}
             required
           />
+          {errors.numVehicles && <p className="text-red-500 text-sm">{errors.numVehicles}</p>}
         </div>
         
         <div className="space-y-2 col-span-full">

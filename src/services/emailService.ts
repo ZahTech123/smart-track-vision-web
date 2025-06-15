@@ -1,11 +1,17 @@
 
 import emailjs from '@emailjs/browser';
 import { PlanDetails, QuoteFormData } from '@/types/quote';
+import { isValidEmailFormat } from '@/utils/emailValidation';
 
 export const sendQuoteRequest = async (
   formData: QuoteFormData,
   selectedPlanDetails: PlanDetails | undefined
 ) => {
+  // Validate email format before sending
+  if (!isValidEmailFormat(formData.email)) {
+    throw new Error('Invalid email address format. Please check and try again.');
+  }
+
   const templateParams = {
     customer_name: formData.name,
     customer_email: formData.email,
@@ -26,6 +32,8 @@ export const sendQuoteRequest = async (
     to_email: 'zahtech13@gmail.com,info@terunapng.com'
   };
 
+  console.log('Sending quote request with email:', formData.email);
+  
   return await emailjs.send(
     "service_tluuz6g",
     "template_iiptxnr", 
@@ -35,6 +43,11 @@ export const sendQuoteRequest = async (
 };
 
 export const sendAutoResponse = async (formData: QuoteFormData) => {
+  // Validate email format before sending auto-response
+  if (!isValidEmailFormat(formData.email)) {
+    throw new Error('Invalid email address format. Cannot send auto-response.');
+  }
+
   const templateParams = {
     customer_name: formData.name,
     customer_email: formData.email,
@@ -44,10 +57,20 @@ export const sendAutoResponse = async (formData: QuoteFormData) => {
     to_email: formData.email
   };
 
-  return await emailjs.send(
-    "service_tluuz6g",
-    "template_ew4z10r",
-    templateParams,
-    import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "TNL5_-KPkeziCpnNz"
-  );
+  console.log('Sending auto-response to email:', formData.email);
+
+  try {
+    const result = await emailjs.send(
+      "service_tluuz6g",
+      "template_ew4z10r",
+      templateParams,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "TNL5_-KPkeziCpnNz"
+    );
+    
+    console.log('Auto-response sent successfully:', result);
+    return result;
+  } catch (error) {
+    console.error('Failed to send auto-response:', error);
+    throw new Error('Failed to send confirmation email. Please check your email address.');
+  }
 };
