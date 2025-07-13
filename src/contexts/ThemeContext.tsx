@@ -41,7 +41,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       `${primaryHsl.h} ${primaryHsl.s}% ${primaryHsl.l}%`
     );
     
-    toast.success("Theme applied successfully!");
   };
   
   // Apply default theme on first load
