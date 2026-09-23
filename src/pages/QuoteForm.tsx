@@ -156,6 +156,9 @@ const QuoteForm = () => {
             />
 
             <div className="text-center">
+              <p className="mb-4 text-sm text-gray-600">
+                Before submitting, read our <Link to="/privacy-policy" className="text-smarttrack-red hover:underline">Privacy Policy</Link> and <Link to="/terms-of-service" className="text-smarttrack-red hover:underline">Terms of Service</Link>.
+              </p>
               <Button
                 type="submit"
                 disabled={isSubmitting}

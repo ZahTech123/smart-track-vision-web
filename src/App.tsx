@@ -11,6 +11,10 @@ import Submissions from "./pages/admin/Submissions";
 import Customize from "./pages/admin/Customize";
 import QuoteForm from "./pages/QuoteForm";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
+import GdprCompliance from "./pages/GdprCompliance";
+import DataSecurity from "./pages/DataSecurity";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const queryClient = new QueryClient();
@@ -26,6 +30,10 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/quote" element={<QuoteForm />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/gdpr-compliance" element={<GdprCompliance />} />
+            <Route path="/data-security" element={<DataSecurity />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/submissions" element={<Submissions />} />
             <Route path="/admin/customize" element={<Customize />} />

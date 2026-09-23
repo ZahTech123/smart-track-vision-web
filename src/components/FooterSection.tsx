@@ -52,15 +52,15 @@ const FooterSection = () => {
           <div className="col-span-1">
             <h3 className="text-xl font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-smarttrack-red transition-colors">Terms of Service</a></li>
+              <li><Link to="/terms-of-service" className="text-gray-400 hover:text-smarttrack-red transition-colors">Terms of Service</Link></li>
               <li>
                 <Link to="/privacy-policy" className="text-gray-400 hover:text-smarttrack-red transition-colors">
                   Privacy Policy
                 </Link>
               </li>
-              <li><a href="#" className="text-gray-400 hover:text-smarttrack-red transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-smarttrack-red transition-colors">GDPR Compliance</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-smarttrack-red transition-colors">Data Security</a></li>
+              <li><Link to="/cookie-policy" className="text-gray-400 hover:text-smarttrack-red transition-colors">Cookie Policy</Link></li>
+              <li><Link to="/gdpr-compliance" className="text-gray-400 hover:text-smarttrack-red transition-colors">GDPR Compliance</Link></li>
+              <li><Link to="/data-security" className="text-gray-400 hover:text-smarttrack-red transition-colors">Data Security</Link></li>
             </ul>
           </div>
           
